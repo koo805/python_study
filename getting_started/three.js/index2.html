@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div class="container">
+
+        <h1 style="color:white; margin-right:1000px"><font face="fantasy">Museum</font></h1>
+        <body bgcolor="#000000"></body>
+        <link rel="stylesheet" href="index.css">
+        <div class="rains">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="splat">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>；
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+  
+  <li class="list-group-item">No1. Shelter　/porter robinson ft medeon　/<a href="https://www.youtube.com/watch?v=HQnC1UHBvWA" target="_blank"><p style="color: white; margin-left:700px"><font face="Times New Roman">like</font></p></a></li>
+  <p style="color: white; margin-left:200px"><font face="Times New Roman">name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;furukawa kotaro</font></p>
+  <p style="color: white; margin-left:200px"><font face="Times New Roman">age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16</p> 
+  <p style="color: white; margin-left:200px"><font face="Times New Roman">from&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;japan</p>
+  <p style="color: white; margin-left:200px"><font face="Times New Roman">hobby&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;piano,&nbsp;&nbsp;music,&nbsp;&nbsp;DJ</p> 
+  <p style="color: white; margin-left:200px"><font face="Times New Roman">like&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Porter&nbsp;Robi(⎌ℕ⎌)son</p>
+  </div>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sample - ICS MEDIA</title>
+   
+  <style>
+    body {
+      margin: 100;
+      height: 100;
+      overflow: hidden;
+    }
+
+    canvas {
+      width: 100vw;
+      height: 100vh;
+      background: black;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
+</head>
+<body>
+  <script>
+    function setup() {
+      createCanvas(innerWidth, innerHeight);
+    }
+
+    function draw() {
+      colorMode(HSB);
+      background(0, 0, 0);
+      noFill();
+
+      const lineNum = 70;
+      const segmentNum = 100;
+
+      [...Array(lineNum).keys()].forEach(j => {
+        const time = Date.now() / 6000;
+        const coefficient = 50 + j;
+
+        const h = Math.round(j / lineNum * 60) + 280; // 色相
+        const s = 0; // 彩度
+        const l = Math.round(j / lineNum * 75) + 25; // 明度
+
+        beginShape();
+        stroke(h, s, l);
+
+        [...Array(segmentNum).keys()].forEach(i => {
+
+          const x = i / (segmentNum - 1) * width;
+
+          const px = i / coefficient;
+          const py = (j / 100 + time);
+
+          const randomValue = noise(px, py);
+          const y = randomValue * height;
+          vertex(x, y);
+        });
+
+        endShape();
+      });
+    }
+  </script>
+  <head><meta name="viewport" content="width=device-width, minimum-scale=0.1"><title>fps.png (160×96)</title></head>
+</body>
+
+  </html>
+
+
+</body>
+</html>
+
