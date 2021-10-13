@@ -21,6 +21,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControl.js'
     scene.add(camera)
 
     const geometry = new THREE.BufferGeometry()
+    
     const count = 1000
     const position = new Float32Array(count * 3)
     for(let i = 0; i < count * 3; i++) {
