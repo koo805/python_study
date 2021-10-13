@@ -2,7 +2,8 @@ import random
 
 def draw(deck):
     card=deck.pop()
-    return car1d
+    return 
+    
 
 def calc(hand): 
     s =0
