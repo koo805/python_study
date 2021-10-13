@@ -82,11 +82,88 @@
 #         print("{}*{}={}".format(i + 1,j + 1 (i + 1)*(j + 1)))
 
 
-temp = list()
-deta = [7.8,9.1,10.2,11.0,12.5,12.4,14.3,13.8,12.9,12.4]
-temp = []
-for i in deta:
-     temp.append[i]
+# temp = list()
+# deta = [7.8,9.1,10.2,11.0,12.5,12.4,14.3,13.8,12.9,12.4]
+# temp = []
+# for i in deta:
+#      temp.append[i]
 
 # for count in range(len(temp)):
 #     print("{}時")
+
+
+
+
+import random
+
+def draw(deck):
+    card=deck.pop()
+    return card
+
+def calc(hand): 
+    s =0
+    for card in hand: 
+
+        if 9<card[1]:
+            s+=0
+        else:
+            s+=card[1]
+    return s
+def make_deck():
+     deck =[]
+     marks =["♡","♤","♢","♧"]
+     for mark in marks:
+         for kazu in range(1,14):
+          deck.append([mark,kazu])
+    
+     random.shuffle(deck)
+     return deck
+
+deck = make_deck()
+player =[]
+banker =[]
+
+
+money = 100000
+
+while True :
+    print("現在の所持金は"+str(money)+"円です。")
+    if money<=0:
+        print("所持金は０円になりました。")
+        break
+    predict = int(input("[誰に賭けますか？プレイヤー；０、バンカー；１、引き分け；２]"))
+    bet = int(input("いくら賭けますか？"))
+    if money<bet:
+        bet = money
+        print("全財産を賭け金とします。")
+    money-=bet
+    if len(deck)<=10:
+        deck = make_deck()
+    #プレーヤー・バンカーの順番で2枚ずつ交互に配布
+    for i in range(2):
+        player.append(draw(deck))
+        banker.append(draw(deck))
+    print(player)
+    print(banker)
+
+print(type(calc(player)))
+player.append(draw(deck))
+player.append(draw(deck))
+banker.append(draw(deck))
+banker.append(draw(deck))
+print(player)
+print(banker)
+print(str(calc(player))[-1])
+print(str(calc(banker))[-1])
+if str(calc(player))[-1] == "8" or  str(calc(player))[-1] == "9" or str(calc(banker))[-1] == "8" or str(calc(banker))[-1] =="9":
+    if str(calc(banker))[-1] ==  str(calc(player))[-1]:
+        print("タイ")
+    elif int(str(calc(banker))[-1])> int(str(calc(player))[-1]):
+        print("バンカーの勝ち")
+    else:
+        print("プレイヤーの勝ち")
+elif str(calc(player))[-1] <= "６":
+     print("もう一枚引く")
+elif str(calc(player))[-1] <= "8" or str(calc(player))[-1] >= "6":
+     print("もう引かない")
+    

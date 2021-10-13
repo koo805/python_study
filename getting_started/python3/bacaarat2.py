@@ -7,6 +7,7 @@ def draw(deck):
 def calc(hand): 
     s =0
     for card in hand: 
+
         if 9<card[1]:
             s+=0
         else:
@@ -32,20 +33,34 @@ print(player)
 print(banker)
 print(str(calc(player))[-1])
 print(str(calc(banker))[-1])
-if str(calc(player))[-1] == "8" or  str(calc(player))[-1] == "9":
-      print("プレイヤーのナチュラルウィン")
-if str(calc(banker))[-1] == "8" or str(calc(banker))[-1] =="9":
-      print("バンカーのナチュラルウィン")
+if  (str(calc(player))[-1]) == "8" or (str(calc(player))[-1])  == "9" or (str(calc(banker))[-1]) == "8" or (str(calc(banker))[-1]) =="9":
+    if (str(calc(banker))[-1]) == (str(calc(player))[-1]) :
+        print("タイ")
+    elif int(str(calc(banker))[-1]) > int(str(calc(player))[-1]):
+        print("バンカーの勝ち")
+    else:
+        print("プレイヤーの勝ち")
+elif str(calc(player))[-1] <= "5":
+     print("もう一枚引く")
+elif str(calc(player))[-1] <= "8" or str(calc(player))[-1] >= "6":
+      print("もう引かない")
+    
 
-if str(calc(player))[-1] == "8"  and  str(calc(banker))[-1] == "8":
-    print("aa")
 
-if  str(calc(player))[-1] == "9"  and  str(calc(banker))[-1] == "9":
-    print("a")
-if str(calc(player))[-1] == "9"  and  str(calc(banker))[-1] == "8":
-    print("プレイヤーの勝ち")
-if str(calc(player))[-1] == "8"  and  str(calc(banker))[-1] == "9":
-    print("バンカーの勝ち")
+    #print("ナチュラルウィンではない")
+
+      #print("プレイヤーのナチュラルウィン")
+
+
+# if str(calc(player))[-1] == "8"  and  str(calc(banker))[-1] == "8":
+#     print("aa")
+
+# if  str(calc(player))[-1] == "9"  and  str(calc(banker))[-1] == "9":
+#     print("a")
+# if str(calc(player))[-1] == "9"  and  str(calc(banker))[-1] == "8":
+#     print("プレイヤーの勝ち")
+# if str(calc(player))[-1] == "8"  and  str(calc(banker))[-1] == "9":
+#     print("バンカーの勝ち")
  
 
 
